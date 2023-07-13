@@ -1,10 +1,13 @@
-# fly.toml app configuration file generated for paris-app on 2023-07-12T20:40:27-04:00
+# fly.toml app configuration file generated for trei-app on 2023-07-13T18:23:08-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "paris-app"
+app = "trei-app"
 primary_region = "ewr"
+
+[deploy]
+  release_command = "npm run migrate up"
 
 [http_service]
   internal_port = 3000
@@ -13,6 +16,3 @@ primary_region = "ewr"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
-
-[deploy]
-  release_command = "npm run migrate up"
